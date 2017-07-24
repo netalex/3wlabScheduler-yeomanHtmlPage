@@ -2,7 +2,10 @@
   "name": "yeomanhtmlpage",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "jquery-ui": "^1.12.1",
+    "fullcalendar": "^3.4.0",
+    "fullcalendar-scheduler": "^1.6.2"
   },
   "devDependencies": {
     "chai": "^4.1.0",
