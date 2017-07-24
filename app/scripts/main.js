@@ -51,15 +51,15 @@ $(function() {
                 data: eventUpdated
             })
             .done(function(response) {
-                console.log("updateServer success");
+                console.log('updateServer success');
                 console.log(response);
             })
             .fail(function() {
-                console.log("updateServer error");
+                console.log('updateServer error');
                 console.log(xhr);
             })
             .always(function() {
-                console.log("updateServer complete");
+                console.log('updateServer complete');
             });
     };
 
@@ -69,15 +69,15 @@ $(function() {
                 type: 'DELETE',
             })
             .done(function() {
-                console.log("deleteEventFromServer success:");
-                console.log("event" + eventDeleted.id + ", title " + eventDeleted.title + " deleted from server");
+                console.log('deleteEventFromServer success:');
+                console.log('event' + eventDeleted.id + ', title ' + eventDeleted.title + ' deleted from server');
             })
             .fail(function() {
-                console.log("deleteEventFromServer error:");
-                console.log("event" + eventDeleted.id + ", title " + eventDeleted.title + " deletion from server failed");
+                console.log('deleteEventFromServer error:');
+                console.log('event' + eventDeleted.id + ', title ' + eventDeleted.title + ' deletion from server failed');
             })
             .always(function() {
-                console.log("deleteEventFromServer complete");
+                console.log('deleteEventFromServer complete');
             });
     };
 
@@ -88,16 +88,16 @@ $(function() {
                 dataType: 'json',
             })
             .done(function(configData) {
-                console.log("config success");
+                console.log('config success');
                 baseMaxEventId = configData.baseMaxEventId;
                 console.log('baseMaxEventId: ' + baseMaxEventId);
             })
             .fail(function() {
-                console.log("config error");
+                console.log('config error');
                 console.log(xhr);
             })
             .always(function() {
-                console.log("config complete");
+                console.log('config complete');
             });
     };
 
@@ -109,13 +109,13 @@ $(function() {
                 data: data,
             })
             .done(function() {
-                console.log("postConfig success");
+                console.log('postConfig success');
             })
             .fail(function() {
-                console.log("postConfig error");
+                console.log('postConfig error');
             })
             .always(function() {
-                console.log("postConfig complete");
+                console.log('postConfig complete');
             });
     };
 
@@ -135,19 +135,19 @@ $(function() {
                 data: data,
             })
             .done(function() {
-                console.log("eventsPostObj success");
+                console.log('eventsPostObj success');
             })
             .fail(function() {
-                console.log("eventsPostObj error");
+                console.log('eventsPostObj error');
             })
             .always(function() {
-                console.log("eventsPostObj complete");
+                console.log('eventsPostObj complete');
             });
     };
 
     var eventDropFunction = function(eventData, delta, revertFunc) {
-        alert(eventData.title + " was dropped on " + eventData.start.format());
-        if (!confirm("Are you sure about this change?")) {
+        alert(eventData.title + ' was dropped on ' + eventData.start.format());
+        if (!confirm('Are you sure about this change?')) {
             revertFunc();
         } else {
             $('#calendar').fullCalendar('updateEvent', eventData);
@@ -163,8 +163,8 @@ $(function() {
     };
 
     var eventResizeStopFunction = function(eventData, jsEvent, ui, view) {
-        alert(eventData.title + " was resized to " + eventData.end.format());
-        if (!confirm("Are you sure about this change?")) {
+        alert(eventData.title + ' was resized to ' + eventData.end.format());
+        if (!confirm('Are you sure about this change?')) {
             revertFunc();
         } else {
             $('#calendar').fullCalendar('updateEvent', eventData);
@@ -203,8 +203,8 @@ $(function() {
             baseMaxEventId = JSON.parse(selectedEventData.id) + 1;
             eventsPostObj(selectedEventData);
             var baseMaxEventIdObj = {
-                "id": "1",
-                "baseMaxEventId": baseMaxEventId
+                'id': '1',
+                'baseMaxEventId': baseMaxEventId
             };
             postConfig(baseMaxEventIdObj);
             $('#calendar').fullCalendar('renderEvent', selectedEventDataRendered, true); // stick? = true
@@ -217,7 +217,7 @@ $(function() {
     };
 
     var eventClickFunction = function(event, jsEvent, view) {
-        if (confirm("Delete this event??")) {
+        if (confirm('Delete this event??')) {
             deleteEventFromServer(event);
             $('#calendar').fullCalendar('removeEvents', event.id);
         }
@@ -235,8 +235,8 @@ $(function() {
         locale: 'it',
         weekends: false,
         businessHours: businessHoursObj,
-        minTime: "09:00:00",
-        maxTime: "18:00:00",
+        minTime: '09:00:00',
+        maxTime: '18:00:00',
         now: moment(),
         navLinks: true,
         editable: true,
@@ -266,23 +266,23 @@ $(function() {
                             id: $(this).attr('id'),
                             resourceId: $(this).attr('resourceId'),
                             resourceIds: $(this).attr('resourceIds'),
-                            start: moment.unix($(this).attr('start')).format("YYYY-MM-DDTHH:mm:ss"),
-                            end: moment.unix($(this).attr('end')).format("YYYY-MM-DDTHH:mm:ss"),
+                            start: moment.unix($(this).attr('start')).format('YYYY-MM-DDTHH:mm:ss'),
+                            end: moment.unix($(this).attr('end')).format('YYYY-MM-DDTHH:mm:ss'),
                             title: $(this).attr('title')
                         });
                     });
                     callback(events);
-                    console.log("eventsGetFunction success");
+                    console.log('eventsGetFunction success');
                 },
                 error: function() {
                     $('#script-warning').show();
-                    console.log("eventsGetFunction error");
+                    console.log('eventsGetFunction error');
                 }
             });
         },
         eventRender: function(eventData, element) {
             console.log('eventRenderFunction on,\n\r event: ' + eventData.title + ' ' + eventData.id);
-            element.css("font-weight:bold");
+            element.css('font-weight:bold');
             console.log('eventRenderFunction off');
         },
         eventDrop: function(eventData, delta, revertFunc) {
