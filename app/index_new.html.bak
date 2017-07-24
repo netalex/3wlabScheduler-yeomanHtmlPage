@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Jqueri UI CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css" />
+    <!-- fullcalendar CS-->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css' rel='stylesheet' />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <link href='./vendor/scheduler.min.css' rel='stylesheet' />
+    <!-- custom css -->
+    <link rel="stylesheet" href="style/style.css">
+    <!-- JS lib -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js'></script>
+    <script src='./vendor/scheduler.min.js'></script>
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/locale/it.js'></script> -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/locale-all.js'></script>
+    <!--  -->
+    <!-- app js -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <!--        -->
+    <title>3wlab Scheduler</title>
+</head>
+
+<body>
+    <div id='script-warning'>
+        This page should be running from a webserver, to allow fetching from the <code>json/</code> directory.
+    </div>
+
+    <div><label for="baseUrl">API base URL:</label>
+        <input id="baseUrl" type="url" name="baseUrl" required placeholder=https://tre-wlab-scheduler.herokuapp.com"></div>
+
+    <div id='loading'>loading...</div>
+    <div id='calendar'></div>
+    <!-- The Modal -->
+    <div id="modal" class="modal">
+        <!-- Modal content -->
+        <div class="multievent-option-modal-content">
+            <span class="close">&times;</span>
+            <div>titolo evento:
+                <input type="text"> </div>
+        </div>
+    </div>
+</body>
+
+</html>
